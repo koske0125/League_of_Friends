@@ -9,7 +9,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
         <li class="nav-item mx-3">
-          <a class="nav-link" href="#">ホーム</a>
+          <%= link_to root_path, class: "nav-link" do %>ホーム<% end %>
         </li>
 
         <li class="nav-item mx-3">
@@ -37,7 +37,11 @@
         </li>
 
         <li class="nav-item mx-3">
-          <a class="nav-link" href="#">ユーザー登録</a>
+          <% if user_signed_in? %>
+            <%= link_to destroy_user_session_path, class: "nav-link" do %>ログアウト<% end %>
+          <% else %>
+            <%= link_to new_user_registration_path, class: "nav-link" do %>ユーザー登録<% end %>
+          <% end %>
         </li>
       </ul>
       <form class="d-flex">
@@ -47,4 +51,6 @@
     </div>
    </div>
  </nav>
+ <p class="notice"><%= notice %></p>
+ <p class="alert"><%= alert %></p>
 </header>
