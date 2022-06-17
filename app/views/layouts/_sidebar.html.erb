@@ -1,3 +1,5 @@
 <div class="col-12 col-sm-12 col-md-3 col-lg-2 col-xl-2 bg-dark h-100">
-  <%= link_to edit_user_registration_path do %>プロフィール編集<% end %>
+  <% if user_signed_in? %>
+  <%= link_to edit_public_user_path(@user) do %>プロフィール編集<% end %>
+  <% end %>
 </div>
